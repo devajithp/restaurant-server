@@ -6,7 +6,7 @@ const{jwtSecret,jwtExpire}=Keys
   const signupController=async (req,res)=>
 {
     const {username,email,password}= req.body
-    console.log(req.body)
+    
     
     try {
         const data= await User.findOne({email:email})
@@ -22,7 +22,7 @@ const{jwtSecret,jwtExpire}=Keys
            newUser.email=email
           const salt= await bcrypt.genSalt(10)
           newUser.password= await bcrypt.hash(password,salt)
-          console.log(newUser.password)
+          
           await newUser.save()
           
           res.status(201).json({successMessage:"Registration successfull , please login"})

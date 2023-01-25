@@ -4,7 +4,7 @@ const addProduct=async (req,res)=>
 {
     
     let productData=req.body;
-    console.log(req.body.productName)
+    
     if(!productData)
     {
         
@@ -12,8 +12,7 @@ const addProduct=async (req,res)=>
     }
     else
     {  console.log("success")
-        console.log(productData)
-        console.log("req.user :",req.user)
+        
        
         try {
             const newProduct= new Product()
@@ -38,7 +37,7 @@ const getProducts=async(req,res)=>
    try {
       
     const products= await Product.find({}).populate("productCategory", "category")
-    console.log(products)
+    
     res.status(200).json(products)
 
 
@@ -101,7 +100,7 @@ const editProduct=async (req,res)=>
 const getProductsOfCategory=async(req,res)=>
 {
    let categoryId=req.params.categoryId
-   console.log(typeof(categoryId))
+   
    try {
         
     let products= await Product.find({productCategory: mongoose.Types.ObjectId(categoryId)}).populate("productCategory", "category")

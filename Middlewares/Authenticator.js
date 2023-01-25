@@ -4,7 +4,7 @@ const {jwtSecret}= require("../Config/Keys")
 exports.jwtAuthenticator=(req,res,next)=>
 {
    const token = req.cookies.token
-   console.log(token)
+   
    if(!token)
    {
     res.status(400).json({"errorMessage" :"authorisation denied because no token"})

@@ -23,7 +23,7 @@ const AddToCart= async (req,res)=>
     else
     {
         const product=await Cart.aggregate([{$match:{userId:mongoose.Types.ObjectId(userId)}},{$unwind:"$products"},{$project:{products:1,_id:0}},{$match:{"products.productId":mongoose.Types.ObjectId(productId)}}])
-        console.log(product)
+        
         if(product.length>0)
         {
            cart= await Cart.updateOne({userId:mongoose.Types.ObjectId(userId),"products.productId": mongoose.Types.ObjectId(productId)},{$inc:{"products.$.quantity":1}})
@@ -106,7 +106,7 @@ const RemoveCart=(req,res)=>
     try {
         Cart.deleteOne({userId:mongoose.Types.ObjectId(userId)}).then((response)=>
         {
-            console.log(response)
+            
             res.status(200).json(response)
         })
     } catch (error) {

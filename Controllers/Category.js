@@ -4,8 +4,7 @@ const Category=require("../models/Category")
 const addCategory=async (req,res)=>
 {
     let data= req.body
-    console.log(data)
-    console.log(req.user)
+    
     if(data)
     {
 

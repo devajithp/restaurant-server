@@ -37,7 +37,7 @@ mongoose.connectDB()
 
 app.get("/",(req,res)=>
 {
-    res.send("hai devajith")
+    res.send("hai")
 })
 
 

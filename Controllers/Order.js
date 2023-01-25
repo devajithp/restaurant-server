@@ -9,7 +9,7 @@ const AddToOrder=(req,res)=>
     try {
         Order.create({...data}).then((response)=>
         {
-            console.log(response)
+            
             res.status(201).json(response)
 
         })
@@ -23,7 +23,7 @@ const GetUserOrder=(req,res)=>
     try {
         Order.find({userId:mongoose.Types.ObjectId(userId)}).populate("products.productId").then((data)=>
         {
-            console.log(data)
+            
             res.status(200).json(data)
         })
     } catch (error) {
@@ -36,7 +36,7 @@ const GetAllOrders=(req,res)=>
     try {
         Order.find().populate("products.productId").then((data)=>
         {
-            console.log(data)
+            
             res.status(200).json(data)
         })
     } catch (error) {
@@ -50,7 +50,7 @@ const ConfirmOrder=(req,res)=>
    try {
     Order.updateOne({_id:mongoose.Types.ObjectId(orderId)},{status:"Order Confirmed"}).then((data)=>
     {
-        console.log(data)
+        
         res.status(200).json({"message":"status updated"})
     })
    } catch (error) {
@@ -64,7 +64,7 @@ const CancelOrder=(req,res)=>
     try {
      Order.updateOne({_id:mongoose.Types.ObjectId(orderId)},{status:"Order Cancelled"}).then((data)=>
      {
-         console.log(data)
+         
          res.status(200).json({"message":"status updated"})
      })
     } catch (error) {
@@ -92,7 +92,7 @@ const InitiateOnlineOrder=(req,res)=>
 				return res.status(500).json({ message: "Something Went Wrong!" });
 			}
 			res.status(200).json({ data: order });
-            console.log(order)
+            
 		});
 	} catch (error) {
 		res.status(500).json({ message: "Internal Server Error!" });
@@ -101,7 +101,7 @@ const InitiateOnlineOrder=(req,res)=>
 }
 const VerifyOnlineOrder=(req,res)=>
 {
-    console.log(req.body)
+    
     try {
 		const { razorpay_order_id, razorpay_payment_id, razorpay_signature } =
 			req.body;
