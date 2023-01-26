@@ -7,7 +7,7 @@ exports.jwtAuthenticator=(req,res,next)=>
    
    if(!token)
    {
-    res.status(400).json({"errorMessage" :"authorisation denied because no token"})
+    res.status(400).json({"errorMessage" :`authorisation denied because no token , cookies: ${req.cookies}`})
    }
    try {
     const decoded=jwt.verify(token,jwtSecret)
