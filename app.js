@@ -7,7 +7,7 @@ const productRoute= require("./Routes/Product")
 const cartRoute= require("./Routes/Cart")
 const orderRoute=require("./Routes/Order")
 const cookieParser = require("cookie-parser");
-const morgan = require("morgan");
+// const morgan = require("morgan");
 const dotenv= require("dotenv")
 dotenv.config();
 
@@ -23,7 +23,7 @@ const corsOptions ={
     
 }
 app.use(cors(corsOptions))
-app.use(morgan("dev"))
+// app.use(morgan("dev"))
 app.use(cookieParser())
 app.use("/api/auth",authRouter)
 app.use("/api/category",categoryRoute)
