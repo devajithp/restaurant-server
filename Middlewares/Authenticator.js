@@ -3,9 +3,9 @@ const {jwtSecret}= require("../Config/Keys")
 
 exports.jwtAuthenticator=(req,res,next)=>
 {
-   console.log(req.cookies)
+   
    console.log(req.headers)
-   const token = req.cookies.token
+   const token = req.headers.token
    
    if(!token)
    {
