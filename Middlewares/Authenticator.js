@@ -3,11 +3,12 @@ const {jwtSecret}= require("../Config/Keys")
 
 exports.jwtAuthenticator=(req,res,next)=>
 {
+   console.log(req.cookies)
    const token = req.cookies.token
    
    if(!token)
    {
-    res.status(400).json({"errorMessage" :`authorisation denied because no token , cookies: ${req.cookies.token}`})
+    res.status(400).json({"errorMessage" :"authorisation denied because no token"})
    }
    try {
     const decoded=jwt.verify(token,jwtSecret)
