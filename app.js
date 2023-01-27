@@ -18,7 +18,7 @@ const PORT=process.env.PORT||5000
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }));
 const corsOptions ={
-    origin:'https://devajithp.github.io/restaurant-client', 
+    origin:'https://devajithp.github.io', 
     credentials:true          //access-control-allow-credentials:true
     
 }
