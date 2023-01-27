@@ -8,7 +8,7 @@ router.get("/getorders/:userId",GetUserOrder)
 router.get("/getOrders",GetAllOrders)
 router.patch("/confirm/:orderId",jwtAuthenticator,ConfirmOrder)
 router.patch("/cancel/:orderId",jwtAuthenticator,CancelOrder)
-router.post("/razorpay/initiate",InitiateOnlineOrder)
+router.post("/razorpay/initiate",jwtAuthenticator,InitiateOnlineOrder)
 router.post("/razorpay/verify",VerifyOnlineOrder)
 
 
